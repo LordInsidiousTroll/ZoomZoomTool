@@ -1,9 +1,12 @@
-﻿using System;
+﻿using MapGenerator.Structures;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MapGenerator.Handlers {
-    public static class MapHandler {
+    public  class MapHandler {
+
+        Map map = new Map();
 
     }
 }
