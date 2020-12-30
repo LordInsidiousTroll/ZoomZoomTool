@@ -7,12 +7,15 @@ namespace MapGenerator.Structures {
     public class Node : IEquatable<Node> {
 
         public string SystemName;
-        public string SystemId;
+        public string solarSystemID;
+        public string solarSystemNameID;
 
         //system position coordinates
         public double centerX;
         public double centerY;
         public double centerZ;
+
+        public List<Stargate> stargates;
 
         #region Equality and Comparison stuff
         public override bool Equals(object obj) {
