@@ -7,7 +7,7 @@ using System.Linq;
 namespace MapGenerator.Helpers {
     public class SystemHelper {
 
-        public static Node BuildSystem(SolarSystemStaticDataParser dataParser) {
+        public static Node BuildUnconnectedSystem(SolarSystemStaticDataParser dataParser) {
 
             Node node = new Node();
 
@@ -49,6 +49,12 @@ namespace MapGenerator.Helpers {
 
             var distinctEdges = edges.Distinct().ToList();
             return distinctEdges;
+        }
+
+        public static void ConnectSystems(List<Node> nodes, List<Edge> edges) {
+            foreach (var node in nodes) {
+                node.ConnectedEdges.AddRange(edges.Where(e => e.HasSystem(node.SystemName)));
+            }
         }
 
     }

@@ -14,6 +14,9 @@ namespace MapGenerator.Structures {
         public Node NodeSystem1;
         public Node NodeSystem2;
 
+        //flags for special edges
+        public bool IsTheraConnection;
+
         public Edge() { }
 
         public Edge(Node n1, Node n2) {
@@ -29,6 +32,10 @@ namespace MapGenerator.Structures {
 
         public override int GetHashCode() {
             return HashCode.Combine(System1Name, System2Name);
+        }
+
+        public bool HasSystem(string systemName) {
+            return System1Name == systemName || System2Name == systemName;
         }
     }
 }

@@ -16,6 +16,8 @@ namespace MapGenerator.Structures {
         public double centerZ;
 
         public List<Stargate> stargates;
+        public List<Edge> ConnectedEdges;
+
 
         #region Equality and Comparison stuff
         public override bool Equals(object obj) {

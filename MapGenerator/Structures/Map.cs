@@ -6,9 +6,12 @@ namespace MapGenerator.Structures {
     [Serializable]
     public class Map {
 
-        public List<Node> NodeList = new List<Node>();
-        public List<Edge> EdgeList = new List<Edge>();
+        public List<Node> NodeList;
+        public List<Edge> EdgeList;
 
-
+        public Map(List<Node> nodes, List<Edge> edges) {
+            this.NodeList = nodes;
+            this.EdgeList = edges;
+        }
     }
 }
