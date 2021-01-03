@@ -15,7 +15,7 @@ namespace MapGenerator.Structures {
         public Node NodeSystem2;
 
         //flags for special edges
-        public bool IsTheraConnection;
+        public EdgeType EdgeType;
 
         public Edge() { }
 
@@ -38,4 +38,12 @@ namespace MapGenerator.Structures {
             return System1Name == systemName || System2Name == systemName;
         }
     }
+
+    public enum EdgeType { 
+        Stargate,
+        JumpDrive,
+        Thera,
+        RandomWormhole
+    }
+
 }

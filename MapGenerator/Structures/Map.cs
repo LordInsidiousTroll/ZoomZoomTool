@@ -13,5 +13,7 @@ namespace MapGenerator.Structures {
             this.NodeList = nodes;
             this.EdgeList = edges;
         }
+
+
     }
 }

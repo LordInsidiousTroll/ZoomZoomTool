@@ -18,6 +18,17 @@ namespace MapGenerator.Structures {
         public List<Stargate> stargates;
         public List<Edge> ConnectedEdges;
 
+        public SecurityStatus SecurityStatus;
+
+
+        #region A* stuff
+
+        public int G;
+        public int H;
+        public int F { get { return G + H; } }
+
+        #endregion
+
 
         #region Equality and Comparison stuff
         public override bool Equals(object obj) {
@@ -34,5 +45,12 @@ namespace MapGenerator.Structures {
         }
         #endregion
 
+    }
+
+    public enum SecurityStatus {
+        High,
+        Low,
+        Null,
+        Wormhole
     }
 }

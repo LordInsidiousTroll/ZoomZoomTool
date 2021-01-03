@@ -11,6 +11,12 @@ namespace MapGenerator.Handlers {
 
         public Map map;
 
+        public Node start;
+        public Node destination;
+
+        List<AStarNodeWrapper> openList;
+        List<AStarNodeWrapper> closedList;
+
         public MapHandler(Map map) {
             this.map = map;
         }
@@ -45,5 +51,57 @@ namespace MapGenerator.Handlers {
             return map;
         }
 
+
+        #region Map traversal
+        public List<Node> FindRoute(Node start, Node destination) {
+            this.start = start;
+            this.destination = destination;
+
+            this.openList = new List<AStarNodeWrapper>();
+            this.closedList = new List<AStarNodeWrapper>();
+
+
+            //initialize all nodes in map with distance to end (
+            List<AStarNodeWrapper> allNodesWrapped = new List<AStarNodeWrapper>();
+            foreach (var node in map.NodeList) {
+
+            }
+
+
+
+
+
+
+
+
+
+
+            AStarNodeWrapper current;
+            int g = 0;
+
+
+            //logic begins
+            openList.Add(new AStarNodeWrapper(start));
+            while(openList.Count > 0) {
+                //algorithm's logic goes here
+                var lowest = openList.Min(n => n.F);
+
+            }
+        }
+
+        
+
+        //distance from this node to destination
+        public double ComputeHScore(Node node) {
+            return SystemHelper.DistanceBetweenSystems(node, this.destination);
+        }
+
+        //distance from start to this node
+        public double ComputeGScore(Node node) {
+            return SystemHelper.DistanceBetweenSystems(node, this.start);
+        }
+
+
+        #endregion
     }
 }
