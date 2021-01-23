@@ -27,7 +27,8 @@ namespace MapGenerator.Structures {
         public override bool Equals(object obj) {
             return obj is Edge edge &&
                    ((System1Name == edge.System1Name && System2Name == edge.System2Name) 
-                   || (System1Name == edge.System2Name && System2Name == edge.System1Name));
+                   || (System1Name == edge.System2Name && System2Name == edge.System1Name))
+                   && EdgeType == edge.EdgeType;
         }
 
         public override int GetHashCode() {

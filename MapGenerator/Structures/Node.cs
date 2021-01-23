@@ -37,11 +37,11 @@ namespace MapGenerator.Structures {
 
         public bool Equals(Node other) {
             return other != null &&
-                   SystemId == other.SystemId;
+                   solarSystemID == other.solarSystemID;
         }
 
         public override int GetHashCode() {
-            return HashCode.Combine(SystemId);
+            return HashCode.Combine(solarSystemID);
         }
         #endregion
 

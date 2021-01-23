@@ -45,7 +45,7 @@ namespace MapGenerator.Handlers {
                 }
             }
 
-            List<Edge> allEdges = SystemHelper.CreateListOfEdges(allNodes);
+            List<Edge> allEdges = SystemHelper.CreateListOfAllEdges(allNodes);
 
             Map map = new Map(allNodes, allEdges);
             return map;
@@ -53,43 +53,54 @@ namespace MapGenerator.Handlers {
 
 
         #region Map traversal
+        //public List<Node> FindRoute(Node start, Node destination) {
+        //    this.start = start;
+        //    this.destination = destination;
+
+        //    this.openList = new List<AStarNodeWrapper>();
+        //    this.closedList = new List<AStarNodeWrapper>();
+
+
+        //    //initialize all nodes in map with distance to end (
+        //    List<AStarNodeWrapper> allNodesWrapped = new List<AStarNodeWrapper>();
+        //    foreach (var node in map.NodeList) {
+
+        //    }
+
+
+
+
+
+
+
+
+
+
+        //    AStarNodeWrapper current;
+        //    int g = 0;
+
+
+        //    //logic begins
+        //    openList.Add(new AStarNodeWrapper(start));
+        //    while(openList.Count > 0) {
+        //        //algorithm's logic goes here
+        //        var lowest = openList.Min(n => n.F);
+
+        //    }
+        //}
+
         public List<Node> FindRoute(Node start, Node destination) {
-            this.start = start;
-            this.destination = destination;
+            var path = FindRoute_AStarPathfinding(start, destination);
 
-            this.openList = new List<AStarNodeWrapper>();
-            this.closedList = new List<AStarNodeWrapper>();
-
-
-            //initialize all nodes in map with distance to end (
-            List<AStarNodeWrapper> allNodesWrapped = new List<AStarNodeWrapper>();
-            foreach (var node in map.NodeList) {
-
-            }
-
-
-
-
-
-
-
-
-
-
-            AStarNodeWrapper current;
-            int g = 0;
-
-
-            //logic begins
-            openList.Add(new AStarNodeWrapper(start));
-            while(openList.Count > 0) {
-                //algorithm's logic goes here
-                var lowest = openList.Min(n => n.F);
-
-            }
+            return path;
         }
 
-        
+        public List<Node> FindRoute_AStarPathfinding(Node start, Node destination) {
+
+
+
+            throw new NotImplementedException("[MapHandler][FindRoute_AStarPathfinding] This method not implemented yet...");
+        }
 
         //distance from this node to destination
         public double ComputeHScore(Node node) {

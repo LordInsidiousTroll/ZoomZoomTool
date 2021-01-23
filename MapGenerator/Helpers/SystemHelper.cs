@@ -32,17 +32,27 @@ namespace MapGenerator.Helpers {
         }
 
 
-        public static List<Edge> CreateListOfEdges(List<Node> allNodes) {
+        public static List<Edge> CreateListOfAllEdges(List<Node> allNodes) {
 
             List<Edge> edges = new List<Edge>();
 
-            List<Stargate> allGates = new List<Stargate>();
-            allNodes.ForEach(n => allGates.AddRange(n.stargates));
+            edges.AddRange(CreateListOfStargateEdges(allNodes));
+            edges.AddRange(CreateListOfJumpEdges(allNodes));
 
+            return edges;
+        }
+
+        public static List<Edge> CreateListOfStargateEdges(List<Node> nodes) {
+            List<Edge> edges = new List<Edge>();
+
+            //do the stargate edges
+            List<Stargate> allGates = new List<Stargate>();
+            nodes.ForEach(n => allGates.AddRange(n.stargates));
             foreach (var gate in allGates) {
                 var edge = new Edge {
                     System1Name = gate.HomeSystemName,
-                    System2Name = allGates.Where(g => g.StargateId == gate.DestinationGateId).FirstOrDefault().HomeSystemName
+                    System2Name = allGates.Where(g => g.StargateId == gate.DestinationGateId).FirstOrDefault().HomeSystemName,
+                    EdgeType = EdgeType.Stargate
                 };
                 edges.Add(edge);
             }
@@ -66,7 +76,8 @@ namespace MapGenerator.Helpers {
                 }
             }
 
-            return edges;
+            var distinctEdges = edges.Distinct().ToList();
+            return distinctEdges;
         }
 
         public static void ConnectSystems(List<Node> nodes, List<Edge> edges) {
