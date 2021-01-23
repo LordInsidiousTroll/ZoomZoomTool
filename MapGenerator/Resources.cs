@@ -12,5 +12,8 @@ namespace MapGenerator {
         public static string _pathToRegionalDirectory = @"sde\sde\fsd\universe\eve";
 
         public static string PathToRegionalDirectory { get { return Path.Combine(_pathToEveStuff, _pathToRegionalDirectory); } }
+
+        //jump values and such
+        public static double MAX_JUMP_DISTANCE = double.MinValue;
     }
 }

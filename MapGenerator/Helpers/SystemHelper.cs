@@ -51,6 +51,24 @@ namespace MapGenerator.Helpers {
             return distinctEdges;
         }
 
+        public static List<Edge> CreateListOfJumpEdges(List<Node> nodes) {
+            List<Edge> edges = new List<Edge>();
+
+            //compare each system with every other system and add new edges where appropriate
+            for (int i = 0; i < nodes.Count; i++) {
+                for(int j = i; j < nodes.Count; j++) {
+                    if (nodes[i].Equals(nodes[j])) continue;
+                    if(DistanceBetweenSystems(nodes[i], nodes[j]) <= Resources.MAX_JUMP_DISTANCE) {
+                        Edge item = new Edge(nodes[i], nodes[j]);
+                        item.EdgeType = EdgeType.JumpDrive;
+                        edges.Add(item);
+                    }
+                }
+            }
+
+            return edges;
+        }
+
         public static void ConnectSystems(List<Node> nodes, List<Edge> edges) {
             foreach (var node in nodes) {
                 node.ConnectedEdges.AddRange(edges.Where(e => e.HasSystem(node.SystemName)));
