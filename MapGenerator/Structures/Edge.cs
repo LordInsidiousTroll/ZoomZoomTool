@@ -44,7 +44,8 @@ namespace MapGenerator.Structures {
         Stargate,
         JumpDrive,
         Thera,
-        RandomWormhole
+        RandomWormhole,
+        JumpBridge
     }
 
 }

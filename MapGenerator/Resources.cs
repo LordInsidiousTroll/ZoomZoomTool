@@ -14,6 +14,13 @@ namespace MapGenerator {
         public static string PathToRegionalDirectory { get { return Path.Combine(_pathToEveStuff, _pathToRegionalDirectory); } }
 
         //jump values and such
-        public static double MAX_JUMP_DISTANCE = double.MinValue;
+        public static double AUS_IN_LIGHTYEAR = 63241.077;
+        public static double MAX_JUMP_DISTANCE_LY = 8;
+        public static double MAX_JUMP_DISTANCE_AUS { get { return MAX_JUMP_DISTANCE_LY * AUS_IN_LIGHTYEAR; } }
+
+        //save files
+        public static string baseSaveFilePath = @"";
+        public static string NodeSaveFilePath { get { return Path.Combine(baseSaveFilePath, "nodes.dat"); } }
+        public static string EdgeSaveFilePath { get { return Path.Combine(baseSaveFilePath, "edges.dat"); } }
     }
 }
