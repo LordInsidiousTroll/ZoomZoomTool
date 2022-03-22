@@ -88,6 +88,7 @@ namespace MapGenerator.Helpers {
 
         //should be able to use this to find the heuristic for A* if I choose to go that route
         //consider only using x and y or x and z (eliminate vertical component to improve performance)
+
         public static double DistanceBetweenSystems(Node n1, Node n2) {
             double dx2 = Math.Pow(n2.centerX - n1.centerX, 2);
             double dy2 = Math.Pow(n2.centerY - n1.centerY, 2);

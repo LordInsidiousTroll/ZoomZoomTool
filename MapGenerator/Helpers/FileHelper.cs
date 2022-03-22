@@ -32,5 +32,28 @@ namespace MapGenerator.Helpers {
                 bformatter.Serialize(stream, list);
             }
         }
+
+        public static List<Node> LoadNodeListFromFile() {
+            return LoadNodeListFromFile(Resources.NodeSaveFilePath);
+        }
+
+        public static List<Node> LoadNodeListFromFile(string filePath) {
+            return LoadListFromFile<Node>(filePath);
+        }
+
+        public static List<Edge> LoadEdgeListFromFile() {
+            return LoadEdgeListFromFile(Resources.EdgeSaveFilePath);
+        }
+
+        public static List<Edge> LoadEdgeListFromFile(string filePath) {
+            return LoadListFromFile<Edge>(filePath);
+        }
+
+        public static List<T> LoadListFromFile<T>(string filePath) {
+            using (Stream stream = File.Open(filePath, FileMode.Open, FileAccess.Read)) {
+                List<T> l = (List<T>)new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter().Deserialize(stream);
+                return l;
+            }
+        }
     }
 }
